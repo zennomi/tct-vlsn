@@ -1,13 +1,17 @@
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
-	first_name: {
+	firstName: {
 		type: String,
 		required: true
 	},
-	last_name: {
+	lastName: {
 		type: String,
 		required: true
+	},
+	fullName: {
+		type: String,
+		require: true
 	},
 	date_of_birth: {
 		type: Date,
@@ -21,7 +25,7 @@ const userSchema = mongoose.Schema({
 	},
 	role: {
 		type: String,
-		enum: ['ADMIN', 'TEACHER', 'MENTOR']
+		enum: ['ADMIN', 'TEACHER', 'MENTOR', 'STUDENT']
 	},
 	username: {
 		type: String,

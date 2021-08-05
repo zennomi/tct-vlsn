@@ -28,8 +28,20 @@ mongoose.connect(process.env.MONGODB_URL, {
 });
 
 const userRoute = require('./routes/user.route');
+const classRoute = require('./routes/class.route');
+const studentRoute = require('./routes/student.route');
+const teacherRoute = require('./routes/teacher.route');
+const mentorRoute = require('./routes/mentor.route');
+const attendanceRoute = require('./routes/attendance.route');
+const recordRoute = require('./routes/record.route');
 
-app.use('/api/v1/user', userRoute);
+app.use('/api/v1/users', userRoute);
+app.use('/api/v1/classes', classRoute);
+app.use('/api/v1/students', studentRoute);
+app.use('/api/v1/teachers', teacherRoute);
+app.use('/api/v1/mentors', mentorRoute);
+app.use('/api/v1/attends', attendanceRoute);
+app.use('/api/v1/records', recordRoute);
 
 app.get('*', function(req, res) {
     res.status(404).json({error: 'Not Found'});
